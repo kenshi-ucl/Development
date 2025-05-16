@@ -11,7 +11,7 @@ class ProductSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         if instance.image:
             # Manually construct the URL with the port
-            base_url = "http://localhost:8004"
+            base_url = "http://172.17.100.14:3326/kent"
             relative_url = instance.image.url
             representation['image'] = f"{base_url}{relative_url}"
         else:
@@ -20,7 +20,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def get_image_url(self, obj):
         if obj.image and hasattr(obj.image, 'url'):
-            return f"http://localhost:8004{obj.image.url}"
+            return f"http://172.17.100.14:3326/kent{obj.image.url}"
         return None
 
 class CartItemSerializer(serializers.ModelSerializer):
@@ -56,7 +56,7 @@ class PaymentSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         if instance.avatar:
             # Manually construct the URL with the port
-            base_url = "http://localhost:8004"
+            base_url = "http://172.17.100.14:3326/kent"
             relative_url = instance.avatar.url
             representation['avatar'] = f"{base_url}{relative_url}"
         else:

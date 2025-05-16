@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 
 # Media files configuration
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/ed/development/app/media/'
+MEDIA_ROOT = '/home/kent/development/app/media/'
 
 # Add to INSTALLED_APPS if not already present
 INSTALLED_APPS = [
@@ -51,10 +51,7 @@ CORS_ALLOW_ALL_ORIGINS = True  # For development only
 CORS_URLS_REGEX = r'^/api/.*$'
 
 # Add media types to CORS
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8001",
-]
+CORS_ALLOWED_ORIGINS = ['http://172.17.100.14:3326']
 
 # Application definition
 
@@ -136,8 +133,8 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Use MySQL engine
-        'NAME': 'ed_db1',                 # Your database name
-        'USER': 'ed',                     # Your MySQL username
+        'NAME': 'kent_db1',                 # Your database name
+        'USER': 'kent',                     # Your MySQL username
         'PASSWORD': '123456',                  # Your MySQL password
         'HOST': 'localhost',                   # MySQL server host (localhost if on the same machine)
         'PORT': '3306',                        # MySQL default port
